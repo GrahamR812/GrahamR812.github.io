@@ -9,7 +9,7 @@
 <body>
     <nav class = "navbar">
         <div class="flex-container">
-            <h1>Graham Richards</h1>
+            <h1 id="title">Graham Richards</h1>
         </div>
         <hr>
         <ul>
@@ -21,37 +21,75 @@
 
     <section id="project-1">
         <div class = "flex-container">
-            <h1>RC Rover</h1>
+            <h1>Pneumatic-Drive Rover - Project Overview</h1>
+            <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));">
+                <img width="auto" height="auto" src="../resources/mae106 portrait.jpg" alt="Rover with a plushie driver on top">
+                <img width="auto" height="auto" src="../resources/mae106 trench.png" alt="Autonomous course layout and scoring">
+            </div>
             <div class = "text-container">
-                <img width="300" height="auto" src="../resources/walle.png" alt="RC Rover" class="inline-image">
-                <p>This project involved the CAD design and manufacturing of a manually driven RC car. The rover was designed to be robust and capable of navigating various terrains.</p>
-                <p>Key features of the RC Rover include:</p>
+                <p>As part of a course at UCI (MAE 106), I conceptualized, designed, and manufactured an autonomous pneumatic-piston-powered robot. My role was primarily to program the rover in C++ and assist with the design and CAD modeling of the rover's components, along with manufacturing and assembly. The project posed the following design requirements:</p>
                 <ul>
-                    <li>Custom chassis design using CAD software</li>
-                    <li>3D printed components for lightweight construction</li>
-                    <li>High-torque motors for improved performance</li>
-                    <li>Durable wheels for off-road capabilities</li>
+                    <li>Must be able to navigate the defined "trench" area without crossing through the entrance walls.</li>
+                    <li>Must fit within a 12in diameter cylinder.</li>
+                    <li>We must mount the provided tire horizontally at 16.0±0.25 inches above the ground.</li>
+                    <li>The provided tire must provide air to the provided piston, which is the only allowable locomotion source.</li>
+                    <li>The only allowed sensors are the provided IMU (Mag, Gyro, Accel) and limit switches.</li>
+                    <li>All required parts are provided to us, and some additional parts and fabrication (laser cutting, 3d printing) may be purchased from the school up to $100.</li>
                 </ul>
-                <p>The RC Rover project provided valuable hands-on experience in mechanical design, manufacturing processes, and problem-solving skills.</p>
-                <hr>
+                <p>The project took about 7 weeks to complete, with about 4 weeks of it being testing and improving systems.</p>
             </div>
-
-            
-            <h1>RC Rover</h1>
-            <img width="600" height="auto" src="../resources/walle.png" alt="RC Rover" class="center-image" justify-content="center">
-            <div class = "text-block">
-                <p>This project involved the CAD design and manufacturing of a manually driven RC car. The rover was designed to be robust and capable of navigating various terrains.</p>
-                <p>Key features of the RC Rover include:</p>
-                <ul>
-                    <li>Custom chassis design using CAD software</li>
-                    <li>3D printed components for lightweight construction</li>
-                    <li>High-torque motors for improved performance</li>
-                    <li>Durable wheels for off-road capabilities</li>
-                </ul>
-                <p>The RC Rover project provided valuable hands-on experience in mechanical design, manufacturing processes, and problem-solving skills.</p>
-            </div>
-
         </div>
+    </section>
+    <section id="project-1">
+        <div class="flex-container">
+            <h1>Programming</h1>
+            <div>
+                <div class = "grid-container">
+                    <img width="500" height="auto" src="../resources/mae106 side by side.jpg" alt="CAD model of the rover next to the plush of the driver" class="inline-image">
+                    <div>
+                        <h2>Overview</h2>
+                        <p>I programmed the entirety of the robot's navigation using C++ in PlatformIO, a popular open-source embeded system IDE. I utilized best-practices to create clean, easy to modify code for each part of the robot's automated program. I divided the project into multiple .cpp and .hpp files to abstract each type of operation. For example, I create an Actuation file, a Navigation file, etc. which would all contain their respective functions to be called on a global scope.
+                            This allowed me to more easily modify my code and track bugs.</p>
+                        <p>The rover ran all autonomous systems on an Arduino Uno, which has very limited RAM (2kb) and flash (32kb).</p>
+                        <p>My rover utilized more complex systems than most other teams because I wanted to challenge myself with coding and because I wanted to ensure optimal track performance even during times of poor sensor data. Some of my most unique features are listed here:</p>
+                    </div>
+                    <div>
+                        <h2>Unique Features</h2>
+                        <ul>
+                            <li>Redundant piston-firing sequencing, ensuring optimal performance despite highly variable piston stroke time.</li>
+                            <li>Limit switch failure detection and resolution on the steering wheels and piston.</li>
+                            <li>Closed-loop waypoint-based guidance allowing for variable speed and live turning radius calculations.</li>
+                            <li>Accurate geometrically-based turning radius calculation to avoid tip-over due to elevated center of gravity.</li>
+                            <li>Kalman filter combining magnetometer data and gyroscope data to provide more stable heading data.</li>
+                            <li>Tip-over detection and 3D orientation monitoring for the safety of the robot and anyone around it.</li>
+                            <li>Custom vector and quaternion library (because I wanted to learn more about classes in C++).</li>
+                            <li>100Hz update frequency.</li>
+                            <li>Wired data stream and Python plotter, used for debugging unexpected behavior.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h2>Design Challenges</h2>
+                    <p>One of the first major issues I ran into during this project was running out of RAM. Despite the device being preloaded with only around 80% of its max RAM, I found that mysterious issues were occuring with corrupted data. I discovered this issue was due to the arduino running out of RAM during its processing (due to fragmentation) and needed to find a solution. I then discovered that all of the Serial.print("debug info here") commands used to provide debug info to the serial port were actually storing their strings in RAM. Using the F("mystring") macro, I moved all of those strings into flash (which has a lot of extra capacity) and freed up around 40% of the RAM capacity, resolving the issue.</p>
+                    <p>The next greatest issue I faced was getting useable magnetometer data. The piston driving the vehicle utilizes a solenoid valve, which produces a significant magnetic field when actuated. Despite positioning the magnetometer as far as possible from the solenoid, the valve could still induce the equivalent of 10 degrees of heading offset. This would cause the rover to take a wavy path between waypoints and could ultimately make it unstable and fall over. To correct for this, I calibrated a solenoid offset which would be applied to the raw magnetometer data whenever the solenoid fired. I also implemented a feature to ignore the transient data during the first 100ms after the piston changes state. This was required to avoid a spike in the heading leading to instability.</p>
+                    <p>In addition to the solenoid interfering with the magnetometer, I identified a non-linear relationship between the actual heading of the rover and the calculated heading based on the magnetometer, even after multiple calibrations. During the autonomous sequence, the rover is expected to move straight forward, then turn 90 degrees, then move forward more. Because of the non-linear mapping, orthogonal directions in the physical world were not interpreted as orthogonal to the program. This meant that the actual path taken by the robot involved moving in non-orthogonal directions, which inhibited the rover's ability to understand its current position. Therefore, a small offset was added to the intended waypoint positions to ensure it ended at the expected target for full points. This fix was not ideal and require a lot of tweaking, and was very sensitive to small changes. In the future, I might consider doing a more thorough mapping of the actual magnetometer response to provide more accurate navigation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-1">
+        <div class="flex-container">
+            <h1>Final Competition</h1>
+        
+            <video style="width:min(100%,1280px)" controls>
+                <source src="../resources/mae106 final comp.mp4" type="video/mp4">
+            </video>
+            <div class = "text-block">
+                <p>During the final competition, my rover won first place due to its fairly consisent run-to-run behavior and ability to reach to bonus point square. One of the greatest challenges during the competition was having other robots navigating at the same time. The robots do not have any way of sensing or avoiding other robots, so there were multiple occasions where a very capable robot would get hit or knocked over by another robot. My robot got trapped in a big pile up on one of the three rounds, and managed to do very well on the other two.</p>
+            </div>
+        </div>
+
     </section>
 </body>
 </html>

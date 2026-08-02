@@ -10,6 +10,7 @@
     --font-family: 'Roboto', sans-serif;
     --text-color: #333;
     --text-color-2: #dddddd;
+    --text-color-3: #ffffff;
 }
 
 *{
@@ -17,16 +18,17 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--font-family);
-    font-size: 1.3rem;
 }
 
 html {
     color: var(--text-color);
+    scroll-behavior: smooth;
 }
 
 body {
-    padding: 1rem min(2rem, 2%);
+    /* padding: 1rem min(2rem, 2%); */
     background-color: var(--base-color);
+    width: 100%;
 }
 
 h1 {
@@ -39,6 +41,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
 }
 
+p {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+
 ul {
     list-style-position: inside;
 }
@@ -46,6 +53,7 @@ ul {
 li {
     margin-top: 1em;
     margin-bottom: 1em;
+    font-size: 1.3rem;
 }
 
 nav {
@@ -54,7 +62,21 @@ nav {
     padding-bottom: 0.5em;
     margin-top: 0px;
     margin-bottom: 20px;
-    border-radius: 0.5em;
+    border-bottom: thick solid var(--text-color-3);
+}
+
+#title {
+    color: var(--text-color-3);
+}
+
+.navbar {
+    padding-top: 0px;
+    position: sticky;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    border-color: var(--text-color);
+    z-index:1000;
 }
 
 nav .flex-container {
@@ -62,12 +84,12 @@ nav .flex-container {
     display: flex;
     margin: 0 1em 0 1em;
     padding: 5px;
-    width: 100%;
+    width: auto;
 }
 
 nav hr {
     border: none;
-    border-top: 3px solid var(--text-color-2);
+    border-top: 3px solid var(--text-color-3);
     margin: 0;
     padding: 0;
 }
@@ -90,7 +112,7 @@ nav li:first-child {
 }
 
 nav ul a {
-    color: #ffffff;
+    color: var(--text-color-3);
     text-decoration: none;
     font-weight: bold;
 }
@@ -110,13 +132,13 @@ nav ul a:hover {
     flex-wrap: wrap;
 }
 
-header, section {
+section {
     margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
     background-color: var(--panel-color-2);
     border-radius: 1em;
+    scroll-margin-top: 150px;
 }
 
 img {
@@ -139,9 +161,11 @@ section#projects img {
 .flex-container {
     justify-content: center;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     flex-wrap: wrap;
     margin: 1em;
+    max-width: 100%;
 }
 
 .grid-container {
@@ -149,7 +173,7 @@ section#projects img {
     margin-top:1.5em;
     grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
     gap: 20px;
-    max-width: 100%;
+    max-width: auto;
     box-sizing: border-box;
 }
 
@@ -185,7 +209,7 @@ button {
     cursor: pointer;
     color: var(--text-color-2);
     min-width: 0;
-    width: 100%;
+    width: auto;
 }
 
 button:hover {
@@ -215,4 +239,6 @@ section#about .text-block {
 section#project-1 .flex-container {
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    display: flex;
 }
