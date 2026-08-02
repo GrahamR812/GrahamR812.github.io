@@ -3,10 +3,10 @@
 :root {
     --base-color: #d8d4d1;
     --headings-color: #3498db;
-    --panel-color: #cec8b9;
+    --panel-color: #8ba5bd;
     --panel-color-2: #c8cace;
     --color-1: #313049;
-    --color-2: #2a2892;
+    --color-2: #3a4461;
     --font-family: 'Roboto', sans-serif;
     --text-color: #333;
     --text-color-2: #dddddd;
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-    padding: 1rem 2rem;
+    padding: 1rem min(2rem, 2%);
     background-color: var(--base-color);
 }
 
@@ -50,9 +50,26 @@ li {
 
 nav {
     background-color: var(--panel-color);
-    padding: 1em;
+    padding-top: 0px;
+    padding-bottom: 0.5em;
+    margin-top: 0px;
     margin-bottom: 20px;
     border-radius: 0.5em;
+}
+
+nav .flex-container {
+    justify-content: center;
+    display: flex;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+}
+
+nav hr {
+    border: none;
+    border-top: 3px solid var(--text-color-2);
+    margin: 0;
+    padding: 0;
 }
 
 nav ul {
@@ -61,6 +78,7 @@ nav ul {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
+    padding: 0 min(5em, 8%);
 }
 
 nav li {
@@ -71,19 +89,20 @@ nav li:first-child {
     margin-right: auto;
 }
 
-nav a {
-    color: white;
+nav ul a {
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
 }
 
-nav a:hover {
+nav ul a:hover {
     text-decoration: underline;
 }
 
 .flex-container#profile {
     justify-content: left;
     margin-top: 20px;
+    margin-left: min(3em,5%);
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -107,11 +126,12 @@ img {
 
 section#projects img {
     max-width: 100%;
-    height: 600px;
-    padding: 1em;
+    height: min(400px, 70%);
+    padding: 0.5em min(1em, 2%);
     width: auto;
-    border-radius: 1em;
     object-fit: contain;
+    object-position: center;
+    border-radius: 1em;
 }
 
 .flex-container {
@@ -125,9 +145,10 @@ section#projects img {
 .grid-container {
     display: grid;
     margin-top:1.5em;
-    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
     gap: 20px;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 hr {
@@ -141,7 +162,7 @@ section {
 }
 
 section#projects {
-    padding: 1.5em;
+    padding: min(1.5em, 3%);
     background-color: var(--panel-color-2);
     border-radius: 1em;
     flex-wrap: wrap;
@@ -157,9 +178,12 @@ button {
     background-color: var(--color-1);
     border: none;
     padding: 10px 20px;
+    padding-bottom: 20px;
     border-radius: 0.5em;
     cursor: pointer;
     color: var(--text-color-2);
+    min-width: 0;
+    width: 100%;
 }
 
 button:hover {
@@ -184,4 +208,9 @@ section#about .text-block {
     margin-right: 20px;
     margin-bottom: 15px;
     object-fit: contain;
+}
+
+section#project-1 .flex-container {
+    flex-direction: column;
+    align-items: center;
 }
