@@ -7,14 +7,9 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <div class="flex-container">
-            <h1 id="title">Graham Richards</h1>
-        </div>
-    </header>
-
     <nav class = "navbar">
         <ul>
+            <li>Graham Richards</li>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../index.html#projects">Projects</a></li>
             <li><a href="../contact.html">Contact</a></li>
@@ -24,9 +19,9 @@
     <section id="project-1">
         <div class = "flex-container">
             <h1>Pneumatic-Drive Rover</h1>
-            <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr));">
-                <img width="auto" height="auto" src="../resources/mae106 portrait.jpg" alt="Rover with a plushie driver on top">
-                <img width="auto" height="auto" src="../resources/mae106 trench.png" alt="Autonomous course layout and scoring">
+            <div class="grid-container" style="display: flex;">
+                <img src="../resources/mae106 portrait.jpg" alt="Rover with a plushie driver on top" width=350px>
+                <img src="../resources/mae106 trench.png" alt="Autonomous course layout and scoring" width=400px>
             </div>
             <div class = "text-container">
                 <h2>Project Overview</h2>
@@ -47,8 +42,8 @@
         <div class="flex-container">
             <h1>Programming</h1>
             <div>
-                <div class = "grid-container">
-                    <img width="500" height="auto" src="../resources/mae106 side by side.jpg" alt="CAD model of the rover next to the plush of the driver" class="inline-image">
+                <div class="combined-box">
+                    <img src="../resources/mae106 side by side.jpg" alt="CAD model of the rover next to the plush of the driver" style="width:min(100%, 350px);">
                     <div>
                         <h2>Overview</h2>
                         <p>I programmed the entirety of the robot's navigation using C++ in PlatformIO, a popular open-source embeded system IDE. I utilized best-practices to create clean, easy to modify code for each part of the robot's automated program. I divided the project into multiple .cpp and .hpp files to abstract each type of operation. For example, I create an Actuation file, a Navigation file, etc. which would all contain their respective functions to be called on a global scope.
@@ -85,7 +80,7 @@
         <div class="flex-container">
             <h1>Final Competition</h1>
         
-            <video style="width:min(100%,1280px)" controls>
+            <video style="width:min(100%,720px)" controls>
                 <source src="../resources/mae106 final comp.mp4" type="video/mp4">
             </video>
             <div class = "text-block">
