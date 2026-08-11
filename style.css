@@ -3,10 +3,10 @@
 
 
 :root {
-    --base-color: #d8d4d1;
+    --base-color: #f5bf5b;
     --headings-color: #3498db;
-    --panel-color: #8ba5bd;
-    --panel-color-2: #c8cace;
+    --panel-color: #9fc3e6;
+    --panel-color-2: #dfe8f1;
     --color-1: #313049;
     --color-2: #3a4461;
     --color-3: #ffd769;
@@ -49,6 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin-top: 1rem;
     font-size: 1rem;
+    line-height: 1.8;
 }
 
 ul {
@@ -148,7 +149,7 @@ section {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding: 1.5rem;
+    padding: 1.5rem min(5rem, 5%);
     width: calc(100% - 2rem);
 
     background-color: var(--panel-color-2);
@@ -157,7 +158,6 @@ section {
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 
     max-width: 1450px;
-    /* display: flex; */
 }
 
 
@@ -167,6 +167,7 @@ img {
     height: auto;
     border-radius: 1em;
     object-fit: contain;
+    margin: 8px;
 }
 
 section#projects img {
@@ -201,7 +202,7 @@ section#projects img {
     flex-wrap: wrap;
 }
 
-.grid-container .button img {
+.grid-container button img {
     width: 100%;
     max-height: 300px;
     object-fit: cover;
@@ -255,10 +256,11 @@ button {
     margin-bottom: 0;
 }
 
-button:hover {
+button:hover, button.selected {
     transform: scale(1.05);
     border-color: var(--text-color-3);
     border: medium solid var(--color-3);
+    transition: transform 0.2s ease;
 }
 
 button:active {
@@ -305,6 +307,14 @@ section#project-1 .flex-container {
     flex-wrap: wrap;
 }
 
+.flex-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
 .combined-box {
     flex-flow: row wrap;
     display:flex;
@@ -315,3 +325,29 @@ section#project-1 .flex-container {
         min-width: min(300px, 100%);
     }
 }
+
+
+.show-selector {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+    max-width: 100%;
+
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+.show-selector div {
+    display: block;
+    text-align: center;
+
+    background-color: var(--color-1);
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* .show-selector button.selected {
+    outline: 3px solid #4da3ff;
+    transform: scale(1.05);
+} */

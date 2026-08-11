@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Theater</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class = "navbar">
+        <ul>
+            <li>Graham Richards</li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <section class = "flex-box">
+        <h1>Technical Theater Portfolio</h1>
+
+        
+        <!-- <label for="show-selector">Select a Highlighted Production:</label>
+        <select id="show-selector">
+            <option value="mermaid">The Little Mermaid (Winter 2024)</option>
+            <option value="addams">The Addams Family (Winter 2023)</option>
+        </select> -->
+        <div class="show-selector">
+            <button data-show="mermaid">
+                <img src="../resources/mermaid/mermaid-cast-photo.jpg"  alt="The Little Mermaid (Winter 2024)">
+                <h3>The Little Mermaid (Winter 2024)</h3>
+                <p><b>See More &rarr;</b></p>
+            </button>
+            <button data-show="addams">
+                <img src="../resources/addams/addams-graveyard.jpg"  alt="The Addams Family (Winter 2023)">
+                <h3>The Addams Family (Winter 2023)</h3>
+                <p><b>See More &rarr;</b></p>
+            </button>
+            <button data-show="charlie">
+                <img src="../resources/charlie/charlie-wonka-chocolate.JPG" alt="Charlie and the Chocolate Factory (Fall 2022)">
+                <h3>Charlie and the Chocolate Factory (Fall 2022)</h3>
+                <p><b>See More &rarr;</b></p>
+            </button>
+        </div>
+    </section>
+
+    <section data-show="addams" class="show-section">
+        <div class = "flex-box">
+            <h1>The Addams Family (Winter 2023)</h1>
+            <p>coming soon</p>
+        </div>
+    </section>
+
+    <section data-show="charlie" class="show-section flex-box">
+        <h1>Charlie and the Chocolate Factory (Fall 2022)</h1>
+        <p>coming soon</p>
+    </section>
+
+    <!-- The Little Mermaid -->
+    <!-- Grotto Rock -->
+    <section data-show="mermaid" class="show-section flex-box">
+        <h1>The Little Mermaid (Winter 2024)</h1>
+
+        
+        <div>
+            <img width="500" height="auto" src="../resources/mermaid/mermaid rock in-progress.jpg" alt="Ariel's rock, being constructed">
+            <img width="665" height="auto" src="../resources/mermaid/mermaid rock.jpg" alt="Ariel's rock, completed on set.">
+        </div>
+        <div>
+            <h2>Ariel's Grotto</h2>
+            <p>Ariel's grotto required a load-bearing, two-tier rock structure that could safely support actors while matching the underwater aesthetic.</p>
+            <h3>Design Constraints</h3>
+            <ul>
+                <li>Required to support multiple actors simultaneously</li>
+                <li>Needs to be lightweight enough to be quickly moved on a rolling wagon</li>
+                <li>Must be safe, stable, and visually appealing</li>
+                <li>Limited build time and budget</li>
+            </ul>
+            <h3>My Solution</h3>
+            <p>
+                To create the top surfaces of the rock shelves, I utilized 1/2" rough plywood, cut into a smooth, weathered profile to match the underwater aesthetic and supported on the bottom by a 2x2 wood frame.
+                This provided a rigid surface for the actors to sit or stand, while having a minimal weight, cost, and construction complexity. The two shelves were supported on the bottom by 8" vertical 2x2 and 2x4 blocks,
+                carefully positioned so loads from the upper platform transferred directly into supports below, minimizing bending in the plywood.
+            </p>
+            <p>
+                To accommodate the assembly of the structure and avoid compromising load paths, I marked the exact locations of all vertical supports and framing on the bottom plywood sheet, ensuring the supports would not interfere during assembly.
+                Because the two plywood layers were separated by only ~8 inches, the lower supports had to be attached before the halves were joined; installing them afterward would have been physically impossible.
+            </p>
+            <p>
+                After I constructed the wood structure, other members of the tech team stapled chicken wire to the plywood to span the gap between rock layers, and added papier-mâché and paint to create a solid, cohesive surface.
+                Dividing the labor this way allowed me to apply my structural engineering and construction skills to the rest of the set.
+            </p>
+            <h3>Results / What I learned</h3>
+            <p>
+                I was, and still am, very pleased with how this piece turned out. The structure supported multiple actors throughout the run without requiring any repairs or modifications, and was very visually appealing.
+                This project was a great opportunity to apply engineering principles in a creative environment, and it reinforced how much I enjoy combining technical problem-solving with artistic design.
+            </p>
+        </div>
+    </section>
+
+    <!-- Row Boat -->
+    <section data-show="mermaid" class="show-section flex-box">
+        <h1>Continued...</h1>
+
+        <div>
+            <img width="500" height="auto" src="../resources/mermaid/mermaid-row-boat.png" alt="Ariel's row boat, on set during the show.">
+            <img width="630" height="auto" src="../resources/mermaid/mermaid-row-boat-rehearsal.png" alt="Ariel's row boat on stage with the scene shop behind it.">
+        </div>
+        <div>
+            <h2>Row Boat</h2>
+            <p>The 'Kiss the Girl' scene required a mobile row boat capable of supporting two actors seated face-to-face while allowing interactive movement and choreography.</p>
+            <h3>Design Constraints</h3>
+            <ul>
+                <li>Must have seats for two actors facing each other in the middle of the boat</li>
+                <li>Must have interactive oars</li>
+                <li>Must allow the actors inside to move it around</li>
+                <li>Must be safe, stable, and visually appealing</li>
+                <li>Limited build time and budget</li>
+            </ul>
+            <h3>My Solution</h3>
+            <p>
+                The row boat is comprised of a 2x4 wood structure with a 1/2" rough plywood top and bottom rim, wrapped in thin lauan plywood to form a curved hull profile. Caster wheels were installed under the boat,
+                and black fabric was added around the skirt to prevent the audience from peering under the boat. The bottom of the boat is empty, allowing actors inside to push themselves around.
+            </p>
+            <p>
+                We cut the plywood rims using a jigsaw, then cut 2x4 blocks with mitered ends to create a sloped side to the boat, rather than being perfectly vertical. Once the frame was screwed to the plywood rims,
+                lauan was meticulously cut to conform to the curves of the boat. Because the hull curvature varied along its length, I made multiple iterative jigsaw passes to achieve a precise fit.
+                Once cut, the lauan was screwed to the wood frame, which resulted in some strange looking contours where it flattens to the wood. Fortunately, these contours were not very visible in the show due to stage lighting and proximity to the audience.
+            </p>
+            <p>
+                The seats were constructed with 1/2" plywood, supported underneath by 2x4s attached to the boat's frame. Because of the attachment location to the boat's frame, the seats were forced to be further apart
+                from each other than is ideal for the actors to interact with each other. This resulted from insufficient early testing of actor spacing, and it reinforced the importance of integrating human interaction considerations into the design process.
+            </p>
+            <h3>Results / What I Learned</h3>
+            <p>
+                Although the boat met all functional requirements, the seat spacing ended up wider than ideal, making close interaction between the actors less natural. This was a valuable lesson in the importance of early ergonomic testing.
+                If I were to rebuild the boat, I would adjust the seat placement to better support the scene's choreography.
+            </p>
+            <p>
+                The boat was well-received, and the school's ASB even requested to rent it for an underwater-themed dance after the production.
+            </p>
+        </div>
+    </section>
+
+    <!-- Ursula's Throne -->
+    <section data-show="mermaid" class="show-section flex-box">
+        <h1>Continued...</h1>
+
+        <div>
+            <img width="500" height="auto" src="../resources/mermaid/ursula-throne.jpg" alt="Ursula's throne on set.">
+            <img width="500" height="auto" src="../resources/mermaid/ursula-lair.jpg" alt="Ursula's lair">
+        </div>
+        <div>
+            <h2>Project Overview</h2>
+            <p>coming soon...</p>
+            
+        </div>
+    </section>
+
+    <script>
+        const selectorButtons = document.querySelectorAll('.show-selector button');
+        const sections = document.querySelectorAll('.show-section');
+
+        // Set default show
+        const defaultShow = "mermaid";
+
+        // Hide all sections
+        sections.forEach(section => section.style.display = 'none');
+
+        // Show all sections for the default show
+        document.querySelectorAll(`.show-section[data-show="${defaultShow}"]`)
+            .forEach(section => section.style.display = 'block');
+
+        // Highlight the default button
+        selectorButtons.forEach(btn => {
+            if (btn.dataset.show === defaultShow) {
+                btn.classList.add('selected');
+            }
+        });
+
+        // Click behavior
+        selectorButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const showId = btn.dataset.show;
+
+                // Hide all sections
+                sections.forEach(section => section.style.display = 'none');
+
+                // Show all sections for this show
+                document.querySelectorAll(`.show-section[data-show="${showId}"]`)
+                    .forEach(section => section.style.display = 'block');
+
+                // Update selected styling
+                selectorButtons.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>
