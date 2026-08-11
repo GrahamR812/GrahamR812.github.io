@@ -16,7 +16,7 @@
     </nav>
 
     <section class = "flex-box">
-        <h1>Technical Theater Portfolio</h1>
+        <h1>Technical Theater Highlights</h1>
 
         
         <!-- <label for="show-selector">Select a Highlighted Production:</label>
@@ -43,16 +43,90 @@
         </div>
     </section>
 
-    <section data-show="addams" class="show-section">
-        <div class = "flex-box">
+    <section data-show="addams" class="show-section flex-box">
             <h1>The Addams Family (Winter 2023)</h1>
-            <p>coming soon</p>
-        </div>
+            <div style="justify-content: center; display:flex; max-width:100%; flex-wrap: wrap;">
+                <img src="../resources/addams/addams-wip-set.jpg" width="400px" alt="The main balcony of the set, as rough framing being constructed.">
+                <img src="../resources/addams/addams-set-lift.jpg" width="400px" alt="Behind the main balcony set, me working on a mast lift.">
+                <img src="../resources/addams/addams-set-complete.png" width="800px" alt="The completed main set, with actors on it.">
+            </div>
+
+            <div>
+                <h2>Set Construction</h2>
+                <p>Although the production hired an external set designer, I played a major role in constructing key elements of the set, including the second-floor balcony, staircases, wagons, and flying flats.</p>
+                <h3>My Contributions</h3>
+                <p>
+                    At the back of the stage is a large, static foyer area used for many scenes. I framed the second-floor balcony using 2x4 lumber and installed 4x8 flats to form the back wall.
+                    I also installed railings and staircases, and assisted with many other construction tasks.
+                </p>
+                <p>
+                    Multiple scenes required smaller wagons to be brought on stage to isolate smaller rooms, like Morticia's grotto. I fastened multiple 4x8 wagons together to create a larger platform,
+                    then assisted with the design and construction of supports to hold up a wall on the back side. Because of the tall nature of the wall, diagonal braces were required to prevent it from tipping over.
+                    This became a challenge when floor space needs to be maximized on the wagon, but a diagonal brace in the front negatively impacts the aesthetics of the room.
+                </p>
+                <p>
+                    I resolved this by incorporating the diagonal braces into the room's visual design, disguising them as part of the set architecture.
+                </p>
+
+                <h3>Flying Walls</h3>
+                <p>Because of the limited floor space available in the theater, a few flats were flown in from overhead.</p>
+                <p>I installed appropriate mounting hardware on the back side of flats and fences for the graveyard scenes, and secured cables to the fly battens.</p>
+
+                <h3>Reflection</h3>
+                <p>
+                    This project strengthened my construction skills and taught me how to balance structural needs with aesthetic constraints in a live theater environment.
+                    The production presented some organizational challenges, as the set designer's plans and instructions often changed or lacked clear communication.
+                    This required me to take initiative, clarify details independently, and coordinate closely with other crew members to keep construction on schedule.
+                    Although the process was sometimes difficult, it ultimately strengthened my communication skills and my ability to work productively in less structured environments.
+                </p>
+            </div>
     </section>
 
     <section data-show="charlie" class="show-section flex-box">
         <h1>Charlie and the Chocolate Factory (Fall 2022)</h1>
-        <p>coming soon</p>
+
+        <div style="justify-content: center; display:flex; max-width:100%; flex-wrap: wrap;">
+            <img src="../resources/charlie/charlie-outside-background.JPG" width="400px" alt="The front of the victorian-style factory, from the outside">
+            <img src="../resources/charlie/charlie-augustus-tube.JPG" width="400px" alt="Augustus Gloop being sucked up by a chocolate tube as other characters watch in horror.">
+            <img src="../resources/charlie/charlie-nut-room.JPG" width="400px" alt="The Nut sorting room of the factory, with characters talking to the squirrels">
+            <video src="../resources/charlie/charlie-pipe-stuck.mp4" width="400px" autoplay loop muted alt="Video of Augustus Gloop being sucked up a chocolate pipe"></video>
+        </div>
+
+        <div>
+            <h2>Video Projections</h2>
+            <p>The show required large virtual set extensions to immerse the audience in the magical world of Charlie and the Chocolate Factory.</p>
+            <h3>Projection Requirements</h3>
+            <ul>
+                <li>Must fit in the theme of the show.</li>
+                <li>Must have projections for specified scenes/rooms.</li>
+                <li>Must fill the entire backdrop of the stage</li>
+                <li>Must be 3d-rendered.</li>
+                <li>Certain scenes require animations (e.g. Augustus Gloop going up the chocolate tube).</li>
+                <li>Limited time for development and rendering.</li>
+            </ul>
+            <h3>My Process</h3>
+            <p>
+                As a relatively new 3d animator, I used this opportunity to teach myself more about 3d animation and rendering, and I learned a lot along the way.
+                As a solo developer also tasked with set design and stage management for this show, I had to carefully budget my time to get all the materials ready for the show's opening.
+                I spent nearly all of my free time outside of school and theater developing the video projections in 3ds Max and using the scanline renderer for all exports.
+                I used procedural modeling to create organic bushes and lollipops scattered in the chocolate room, character modeling to create giant squirrel statues in the nut room, and
+                explored architectural modeling to create a victorian-style factory exterior where the characters first arrive at the factory.
+            </p>
+            <p>
+                Because of the immense scale of the project, I started development of the 3d scenes in April, long before we opened in October.
+            </p>
+            <h3>Results / Reflection</h3>
+            <p>
+                I received many compliments for my projections from audience members, cast and crew, and the director, and the animation of Augustus being sucked up the chocolate tube became a highlight of the show.
+                Although they were well-received, the renderings were plagued with a difficult to track rendering artifact: every surface technically has a mirror finish.
+                This is due to my misunderstanding of the scanline renderer's limitations: It does not consider specular roughness (how diffuse the reflection is) only a non-physical reflection multiplier.
+                Along with my configuration of the materials and textures in the scenes, this meant that all reflections were perfect mirror finishes, rather than the diffuse reflections we see in the real world.
+                This I think detracts from the aesthetic quality of most of the projections, which is unfortunate as I only discovered the cause of the issue days after the show closed.
+            </p>
+            <p>
+                Overall, the projections added significant value to the production and served as a valuable learning experience for me.
+            </p>
+        </div>
     </section>
 
     <!-- The Little Mermaid -->

@@ -170,6 +170,14 @@ img {
     margin: 8px;
 }
 
+video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1em;
+    object-fit: contain;
+    margin: 8px;
+}
+
 section#projects img {
     max-width: 100%;
     /* height: min(200px, 70%); */
@@ -191,9 +199,10 @@ section#projects img {
 }
 
 .grid-container {
+    --col-width: 450px;
     display: grid;
     margin-top: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--col-width), 100%), 2fr));
     gap: 20px;
     max-width: auto;
     box-sizing: border-box;

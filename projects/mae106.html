@@ -24,7 +24,10 @@
             </div>
             <div class = "text-container">
                 <h2>Project Overview</h2>
-                <p>As part of a course at UCI (MAE 106), I conceptualized, designed, and manufactured an autonomous pneumatic-piston-powered robot. My role was primarily to program the rover in C++ and assist with the design and CAD modeling of the rover's components, along with manufacturing and assembly. The project posed the following design requirements:</p>
+                <p>
+                    As part of a course at UCI (MAE 106), I conceptualized, designed, and manufactured an autonomous pneumatic-piston-powered robot. My role was primarily to program the rover in C++ and assist with the design
+                    and CAD modeling of the rover's components, along with manufacturing and assembly. The project posed the following design requirements:
+                </p>
                 <ul>
                     <li>Must be able to navigate the defined "trench" area without crossing through the entrance walls.</li>
                     <li>Must fit within a 12in diameter cylinder.</li>
@@ -45,10 +48,17 @@
                     <img src="../resources/mae106/mae106 side by side.jpg" alt="CAD model of the rover next to the plush of the driver" style="width:min(100%, 350px);">
                     <div>
                         <h2>Overview</h2>
-                        <p>I programmed the entirety of the robot's navigation using C++ in PlatformIO, a popular open-source embeded system IDE. I utilized best-practices to create clean, easy to modify code for each part of the robot's automated program. I divided the project into multiple .cpp and .hpp files to abstract each type of operation. For example, I create an Actuation file, a Navigation file, etc. which would all contain their respective functions to be called on a global scope.
-                            This allowed me to more easily modify my code and track bugs.</p>
+                        <p>
+                            I programmed the entirety of the robot's navigation using C++ in PlatformIO, a popular open-source embeded system IDE. I utilized best-practices to create clean,
+                            easy to modify code for each part of the robot's automated program. I divided the project into multiple .cpp and .hpp files to abstract each type of operation.
+                            For example, I create an Actuation file, a Navigation file, etc. which would all contain their respective functions to be called on a global scope.
+                            This allowed me to more easily modify my code and track bugs.
+                        </p>
                         <p>The rover ran all autonomous systems on an Arduino Uno, which has very limited RAM (2kb) and flash (32kb).</p>
-                        <p>My rover utilized more complex systems than most other teams because I wanted to challenge myself with coding and because I wanted to ensure optimal track performance even during times of poor sensor data. Some of my most unique features are listed here:</p>
+                        <p>
+                            My rover utilized more complex systems than most other teams because I wanted to challenge myself with coding and because I wanted to ensure optimal track performance even during times of poor sensor data.
+                            Some of my most unique features are listed here:
+                        </p>
                     </div>
                     <div>
                         <h2>Unique Features</h2>
@@ -67,9 +77,31 @@
                 </div>
                 <div>
                     <h2>Design Challenges</h2>
-                    <p>One of the first major issues I ran into during this project was running out of RAM. Despite the device being preloaded with only around 80% of its max RAM, I found that mysterious issues were occuring with corrupted data. I discovered this issue was due to the arduino running out of RAM during its processing (due to fragmentation) and needed to find a solution. I then discovered that all of the Serial.print("debug info here") commands used to provide debug info to the serial port were actually storing their strings in RAM. Using the F("mystring") macro, I moved all of those strings into flash (which has a lot of extra capacity) and freed up around 40% of the RAM capacity, resolving the issue.</p>
-                    <p>The next greatest issue I faced was getting useable magnetometer data. The piston driving the vehicle utilizes a solenoid valve, which produces a significant magnetic field when actuated. Despite positioning the magnetometer as far as possible from the solenoid, the valve could still induce the equivalent of 10 degrees of heading offset. This would cause the rover to take a wavy path between waypoints and could ultimately make it unstable and fall over. To correct for this, I calibrated a solenoid offset which would be applied to the raw magnetometer data whenever the solenoid fired. I also implemented a feature to ignore the transient data during the first 100ms after the piston changes state. This was required to avoid a spike in the heading leading to instability.</p>
-                    <p>In addition to the solenoid interfering with the magnetometer, I identified a non-linear relationship between the actual heading of the rover and the calculated heading based on the magnetometer, even after multiple calibrations. During the autonomous sequence, the rover is expected to move straight forward, then turn 90 degrees, then move forward more. Because of the non-linear mapping, orthogonal directions in the physical world were not interpreted as orthogonal to the program. This meant that the actual path taken by the robot involved moving in non-orthogonal directions, which inhibited the rover's ability to understand its current position. Therefore, a small offset was added to the intended waypoint positions to ensure it ended at the expected target for full points. This fix was not ideal and require a lot of tweaking, and was very sensitive to small changes. In the future, I might consider doing a more thorough mapping of the actual magnetometer response to provide more accurate navigation.</p>
+                    <h3>RAM</h3>
+                    <p>
+                        One of the first major issues I ran into during this project was running out of RAM. Despite the device being preloaded with only around 80% of its max RAM, I found that mysterious issues were occuring with corrupted data.
+                        I discovered this issue was due to the arduino running out of RAM during its processing (due to fragmentation) and needed to find a solution. I then discovered that all of the Serial.print("debug info here") commands used
+                        to provide debug info to the serial port were actually storing their strings in RAM. Using the F("mystring") macro, I moved all of those strings into flash (which has a lot of extra capacity) and freed up around 40% of the RAM capacity, resolving the issue.
+                    </p>
+                    <h3>Magnetometer Interference</h3>
+                    <p>
+                        The next greatest issue I faced was getting useable magnetometer data. The piston driving the vehicle utilizes a solenoid valve, which produces a significant magnetic field when actuated. Despite positioning the magnetometer as far as possible from the solenoid,
+                        the valve could still induce the equivalent of 10 degrees of heading offset. This would cause the rover to take a wavy path between waypoints and could ultimately make it unstable and fall over. To correct for this,
+                        I calibrated a solenoid offset which would be applied to the raw magnetometer data whenever the solenoid fired. I also implemented a feature to ignore the transient data during the first 100ms after the piston changes state.
+                        This was required to avoid a spike in the heading leading to instability.
+                    </p>
+                    <h3>Magnetometer Mapping</h3>
+                    <p>
+                        In addition to the solenoid interfering with the magnetometer, I identified a non-linear relationship between the actual heading of the rover and the calculated heading based on the magnetometer, even after multiple calibrations.
+                        During the autonomous sequence, the rover is expected to move straight forward, then turn 90 degrees, then move forward more. Because of the non-linear mapping, orthogonal directions in the physical world were not interpreted as orthogonal to the program.
+                        This meant that the actual path taken by the robot involved moving in non-orthogonal directions, which inhibited the rover's ability to understand its current position.
+                        Therefore, a small offset was added to the intended waypoint positions to ensure it ended at the expected target for full points. This fix was not ideal and require a lot of tweaking, and was very sensitive to small changes.
+                        In the future, I might consider doing a more thorough mapping of the actual magnetometer response to provide more accurate navigation.
+                    </p>
+                    <div style="display: flex; align-items: end;">
+                        <img src="../resources/GitHub_Invertocat_Black.png" alt="github logo" style="height: 2em;">
+                        <h2>Visit the GitHub repo <a href="https://github.com/GrahamR812/MAE106_Final" target="_blank">here</a>!</h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,7 +115,11 @@
                 <source src="../resources/mae106/mae106 final comp.mp4" type="video/mp4">
             </video>
             <div class = "text-block">
-                <p>During the final competition, my rover won first place due to its fairly consisent run-to-run behavior and ability to reach to bonus point square. One of the greatest challenges during the competition was having other robots navigating at the same time. The robots do not have any way of sensing or avoiding other robots, so there were multiple occasions where a very capable robot would get hit or knocked over by another robot. My robot got trapped in a big pile up on one of the three rounds, and managed to do very well on the other two.</p>
+                <h2>Results</h2>
+                <p>
+                    During the final competition, my rover won first place due to its fairly consisent run-to-run behavior and ability to reach to bonus point square. One of the greatest challenges during the competition was having other robots navigating at the same time.
+                    The robots do not have any way of sensing or avoiding other robots, so there were multiple occasions where a very capable robot would get hit or knocked over by another robot. My robot got trapped in a big pile up on one of the three rounds, and managed to do very well on the other two.</p>
+                <p>My effort to make the code readable and geometry-based paid off when various track factors, such as the slope of the pavement or magnetometer issues required adjustments to the autonomous program that were impossible to predict.</p>
             </div>
         </div>
 
