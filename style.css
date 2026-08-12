@@ -5,11 +5,11 @@
 :root {
     --base-color: #f5bf5b;
     --headings-color: #3498db;
-    --panel-color: #9fc3e6;
-    --panel-color-2: #dfe8f1;
+    --panel-color: #235697; /* 00386c uci, or 62a2e2 */
+    --panel-color-2: #f3f8ff;
     --color-1: #313049;
     --color-2: #3a4461;
-    --color-3: #ffd769;
+    --color-3: #ffd769; 
     --font-family: 'Roboto', sans-serif;
     --font-family-2: "Roboto Mono", monospace;
     --text-color: #333;
@@ -92,29 +92,19 @@ nav {
     border-top: 2px solid var(--text-color);
 }
 
-/* nav .flex-container {
-    justify-content: center;
-    display: flex;
-    margin: 0em 1em 0em 1em;
-    padding: 5px;
-    width: auto;
-} */
-
-/* nav hr {
-    border: none;
-    border-top: 3px solid var(--text-color-3);
-    margin: 0;
-    padding: 0;
-} */
-
 nav ul {
     list-style: none;
     align-items: center;
     display: flex;
     gap: 2em;
-    margin: 10px 0;
+    margin: 10px auto;
     flex-wrap: wrap;
-    padding: 0 min(5em, 8%);
+    padding: 0 min(2em, 8%);
+}
+
+nav > * {
+    width: min(1450px, calc(100% - 2rem));
+    max-width: 1450px;
 }
 
 nav li {
@@ -123,6 +113,7 @@ nav li {
 
 nav li:first-child {
     margin-right: auto;
+    font-size: x-large;
 }
 
 nav ul a {
