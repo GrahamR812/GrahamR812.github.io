@@ -15,6 +15,7 @@
         </ul>
     </nav>
 
+    <!-- Year/Project Selection Grid -->
     <section class = "flex-box">
         <h1>Solar Airplane</h1>
         <div class="show-selector" style="grid-template-columns: repeat(auto-fit, min(400px, 100%));">
@@ -34,6 +35,8 @@
     <!-- Overview -->
     <section>
         <div class = "flex-container">
+            <h1 class="show-section" data-show="24-25">Tandem Wing (2024-2025)</h1>
+            <h1 class="show-section" data-show="25-26">Conventional Wing (2025-2026)</h1>
             <div class = "text-container">
                 <h2>Project Overview</h2>
                 <p>
@@ -130,7 +133,9 @@
                     I utilized UC Irvine's FabWorks 70W laser cutter to create the ribs out of 1/8" balsa wood. I started with a test cut to ensure a proper fit with the spar and that the laser would cut properly.
                     After adjusting the spar hole diameter to create an acceptable fit, I cut out around 80 ribs for the wings.
                 </p>
-                <video src="../resources/solar-airplane/solar-laser-cut.mp4" autoplay loop muted></video>
+                <video poster="../resources/solar-airplane/solar-laser-cut-poster.jpg" autoplay loop muted>
+                    <source src="../resources/solar-airplane/solar-laser-cut.mp4">
+                </video>
             </div>
             <h3>Glue Up</h3>
             <p>
@@ -171,7 +176,9 @@
                 <img width="400" src="../resources/solar-airplane/solar-wipe-off-solar-panels.JPG">
                 <img width="400" src="../resources/solar-airplane/solar-tandem-flight-1-team.JPG">
             </div>
-            <video width="800" src="../resources/solar-airplane/solar-runway-crash-tracking.mp4" controls></video>
+            <video width="800" poster="../resources/solar-airplane/solar-mission-failed.jpg" controls>
+                <source src="../resources/solar-airplane/solar-runway-crash-tracking.mp4">
+            </video>
 
             <img width="600" src="../resources/solar-airplane/solar-mission-failed.jpg">
             <h3>It Broke.</h3>
@@ -189,9 +196,9 @@
             </p>
             <p>
                 But why not move the CG back? The neutral point (NP) is an imaginary point about which the pitching moment is constant with respect to angle of attack, and is used for static stability calcuations for aircraft.
-                If the NP is behind the CG, it has a positive static margin, and is statically stable - that is, with no control inputs, it will fly fairly straight, as opposed to going into death spirals. In order to have
+                If the NP is behind the CG, the aircraft has a positive static margin, and is statically stable - that is, with no control inputs, it will fly fairly straight, as opposed to going into death spirals. In order to have
                 sufficient static margin, the CG had to be moved a particular distance in front of the NP. And because this analysis was done after manufacturing, it was too late to modify the aerodynamics and NP position.
-                So, we were forced to move the CG to a particular spot, which happened to be far in front of the rear landing gear.
+                So, we were forced to move the CG to a specific spot along the aircraft, which happened to be far in front of the rear landing gear.
             </p>
             <h3>The Solution</h3>
             <p>
@@ -206,7 +213,9 @@
         <div>
             <h2 class="flex-box">Flight Day Two</h2>
             <p>After fixing the front landing gear, and checking calculations over again, I was confident that the aircraft could take off the runway and be stable in flight.</p>
-            <video width="800" src="../resources/solar-airplane/solar-tandem-flight-2-stable.mp4" controls></video>
+            <video width="800" poster="../resources/solar-airplane/solar-crash-wreckage.jpg" controls>
+                <source src="../resources/solar-airplane/solar-tandem-flight-2-stable.mp4">
+            </video>
             <div>
                 <img style="height:300px;" src="../resources/solar-airplane/solar-crash-wreckage.jpg">
                 <img style="height:300px;" src="../resources/solar-airplane/solar-crash-wreckage-2.jpg">
@@ -225,12 +234,12 @@
             </p>
             <p>
                 We were unable to identify any significant changes in data immediately before the nose dive that could indicate a cause for such a sudden change in attitude. We also did not notice any mechanical failures in the flight footage,
-                and we examined the control surfaces and their control horns for damage. Despite the crash, all control surfaces were still attached to their control horns and their servos.
+                and we examined the control surfaces and their control horns for damage after the crash. Despite the crash, all control surfaces were still attached to their control horns and their servos.
             </p>
             <h3>Possible Explainations</h3>
             <p>
                 One possibility is that the tape used to attach the control surfaces to the wings had flexed significantly, causing the wing contour to significantly deform, and the control surface to change orientation. While we have
-                observed some small wiggle in the attachment point, we do not find this option very likely, as the tape is very sticky and unlikely to come undone enough to cause such a dramatic loss of control.
+                observed some small wiggle in the attachment point during pre-flight testing, we do not find this option very likely, as the tape is very sticky and unlikely to come undone enough to cause such a dramatic loss of control.
             </p>
             <p>
                 Another, more likely, possibility is that some internal components were not securely fixed in place, and had managed to shift during flight. If enough weight had moved, the plane could lose it's abiltiy
