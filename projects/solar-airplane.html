@@ -15,15 +15,274 @@
         </ul>
     </nav>
 
-    <section id="project-1">
+    <section class = "flex-box">
+        <h1>Solar Airplane</h1>
+        <div class="show-selector" style="grid-template-columns: repeat(auto-fit, min(400px, 100%));">
+            <button data-show="24-25">
+                <img src="../resources/solar-airplane/solar-front-runway-pose.jpg">
+                <h3>Tandem Wing (2024-2025)</h3>
+                <p><b>See More &rarr;</b></p>
+            </button>
+            <button data-show="25-26">
+                <img src="../resources/solar-airplane/solar-front-runway-pose.jpg">
+                <h3>Conventional Wing (2025-2026)</h3>
+                <p><b>See More &rarr;</b></p>
+            </button>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section>
         <div class = "flex-container">
-            <h1>Solar Airplane</h1>
-            <img width="600" height="auto" src="../resources/solar-airplane/solar-front-runway-pose.jpg" alt="Solar airplane posing on the runway.">
             <div class = "text-container">
                 <h2>Project Overview</h2>
-                <p>coming soon...</p>
+                <p>
+                    The UCI Solar Airplane project aims to demonstrate the viability of solar panels for increasing the flight duration of unmanned aerial vehicles (UAV) and to create a vehicle
+                    capable of assisting in search and rescue missions for natural disasters.
+                </p>
+                <h2>Design Requirements</h2>
+                <ul>
+                    <li>Must be functional</li>
+                    <li>Must be powered by solar panels and batteries</li>
+                    <li>Must have a flight duration extended by 30 minutes beyond the battery life in sunny weather conditions</li>
+                    <li>Electronics and Propulsion equipment must be integrated and easily accessible throughout the aircraft</li>
+                    <li>Must fit in a standard truck bed (6.5ft x 4.2ft)</li>
+                    <li>GPS and camera must be integrated with acceptable video quality</li>
+                    <li>In-flight data must be given via remote terminal</li>
+                </ul>
             </div>
         </div>
     </section>
+
+    <!-- CAD 2024-25 -->
+    <section data-show="24-25" class="show-section">
+        <div class = "flex-box">
+            <h2>CAD Design 2024-25</h2>
+            <div>
+                <h3>Rib Design</h3>
+                <p>I was tasked with creating CAD models for ribs that form the main aerodynamic structure of the wings.</p>
+                <h3>Part Requirements</h3>
+                <ul>
+                    <li>Must range in chord length as the wing tapers</li>
+                    <li>Must have aligned circular spar hole cutouts corresponding to off-the-shelf carbon fiber rods perpendicular to the fuselage.</li>
+                    <li>Must have additional cutouts for mass reduction and wire routing opportunties</li>
+                    <li>Must have cutouts for skin features, such as sheeting on the leading and trailing edges or stringers.</li>
+                    <li>Must be formed from laser-cut balsa wood sheeting</li>
+                </ul>
+
+                <p>
+                    In an ideal case, the ribs would also be very easy to modify, so having 30 separate part files like in the previous year (yikes) is out of the question. I needed to find a solution
+                    to have numerous ribs, placed at arbitrary span distances along the wing with perfectly positioned spar holes to ensure appropriate wing geometry, and with other more complex features.
+                </p>
+                
+                <h3>The Rib Former</h3>
+                <p>Using Solidworks CAD, I developed a uniuqe solution for creating easy-to-modify tapered wing ribs which could be manufactured from flat sheets on a laser cutter.</p>
+            </div>
+
+            <div>
+                <img style="height: 200px;" src="../resources/solar-airplane/solar-former-cross.png">
+                <img style="height: 200px;" src="../resources/solar-airplane/solar-former-full.png">
+            </div>
+
+            <div>
+                <p>
+                    What I call my rib-former method involved a single part file with multiple configurations representing each rib the wing requires. The single part file starts with a loft between a start and end
+                    airfoil profile, creating the root and tip of the wing. This solid block then has multiple lofted cuts taken out of it to provide cavities for wire routing and spar placement. Additional lofted cuts can be made
+                    for other geometry, like the stringer and sheeting cutouts (not pictured above).
+                </p>
+                <p>
+                    The result is a solid block with tunnels representing where objects (wires and spars) can go through the wing, and external parts may be added (stringers and sheeting). In other words, this is the sum of infinitely
+                    many, infinitely thin ribs that could exist along the wing. The next step is to create a sketch that takes the intersection geometry of the former block with a plane perpendicular to the span of the wing, and at the
+                    desired span distance. Then, that sketch geometry is extruded to the thickness of the rib stock material (1/8in), ready to be placed on the assembly or saved as a dxf for cutting. Using an excel design table,
+                    I can easily create a new configuration of the part to form a rib at any arbitrary distance from the root that I desire, without having to modify anything else.
+                </p>
+                <h3>Results</h3>
+                <p>
+                    This method of creating ribs saved a lot of time during development, and made changes of any magnitude very simple to conduct. For example, rather than having to modify the spar diameter on two dozen part files separately,
+                    I just had to modify three sketches, and it updated every part. When we were still figuring out the ideal rib spacing, I could easily decide to put a rib at any position along the wing with a simple update of the excel design
+                    table, and it was done. This made modificaitons to the layout incredibly simple. I was surprised that in my research I did not find anyone else using this method, instead going for the tedious part-by-part method.
+                </p>
+                <p>
+                    One of the greatest disadvantages to my design is the computational power required, and lag induced, by the parts. Because every part rebuilds by calculating every feature of the wing, even those not near the rib, and because those
+                    features (lofts) are more complicated than traditional features (straight extrudes), rebuilding the assembly was very slow.
+                </p>
+                <p>
+                    Ultimately, the team decided to go with a rectangular wing (no taper) and I reverted to a more simple part with a handful of configurations to, for example, remove the trailing edge to make room for the aileron.
+                    I was disappointed that my hard work developing the former was not going to be used in the final product, but understand that the manufacturing benefits of a rectangular wing outweighed the performance gain from a taper.
+                </p>
+            </div>
+            <div>
+                <img style="height: 350px;" src="../resources/solar-airplane/solar-taper-wing-underside.png">
+                <img style="height: 350px;" src="../resources/solar-airplane/solar-former-groves.png">
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing 2024-25 -->
+    <section data-show="24-25" class="show-section">
+        <div class="flex-box"><h2>Manufacturing 2024-25</h2></div>
+        
+        <div>
+            
+            <h3>Laser Cutting</h3>
+            <div class="combined-box">
+                <p>
+                    I utilized UC Irvine's FabWorks 70W laser cutter to create the ribs out of 1/8" balsa wood. I started with a test cut to ensure a proper fit with the spar and that the laser would cut properly.
+                    After adjusting the spar hole diameter to create an acceptable fit, I cut out around 80 ribs for the wings.
+                </p>
+                <video src="../resources/solar-airplane/solar-laser-cut.mp4" autoplay loop muted></video>
+            </div>
+            <h3>Glue Up</h3>
+            <p>
+                As a new member, I was introduced to the previously used methods of adhering the ribs to the spars: 5 minute epoxy resin. I was absolutely horified by the prospect of working a few ribs at a time,
+                constantly pouring new batches of carcinogenic fumes and safety hazards, and taking a long time with each rib. So, I proposed using the super glue we had on hand. I wasn't sure if the super glue would
+                be strong enough for our needs, or if it would even bond well to the wood and carbon fiber tube. So, I made a test glue up with old scrap parts, and determined that, at least within a few days of applying,
+                the super glue bond was stronger than the wood. This meant that we could proceed with super gluing the ribs on, which significantly reduces the hazard we are being exposed to (and ppe required), and speeds
+                up the process of attaching ribs to the spars manually.
+            </p>
+            <img style="height:300px;" src="../resources/solar-airplane/solar-wing-bare-wip.jpg">
+            <p>
+                Using 3d printed jigs to ensure the spars were parallel and the ribs were perpendicular to both spars while gluing, I meticulously followed my prepared solidworks assembly drawings with measurements for the placement
+                of each rib. Because the wings had to be divided into 3 sections - the two sides removable for easy transport - I used internal ferrules epoxied within the outer spars that nest within the inner with a friction fit.
+                The ferrules were designed with a very small clearance between them and the spars, so the distance between the spars on the removable section had to be exactly the same as that on the inner sections. To ensure a proper fit,
+                I actually inserted the spars into each other before gluing the ribs on to one half, that way the spars would be guarunteed to fit.
+            </p>
+            <p>
+                This method proved to be very effective at ensuring the segments fit together, although I forgot to use it on the 2025-2026 aircraft and alignment issues required the ferrule to be carefully sanded down to allow for a flush
+                fit between the sections.
+            </p>
+            <h3>Fuselage Help</h3>
+            <img style="height:300px;" src="../resources/solar-airplane/solar-fuselage-bracing.jpg">
+            <p>
+                I assisted the fuselage subteam with manufacturing the fuselage, and identified multiple points where the structure was not rigid enough to fly properly due to design oversights. I attempted to remedy this
+                by installing diagonal trusses in the structure, and later by placing wood sheeting along the entire side of the fuselage at the advice of a mentor. Unfortunately, this did not resolve the issue, and we ended up flying with a twisty fuselage,
+                which was quite annoying considering the tandem wing configuration, which flew cockeyed, with the wings not being parallel to each other.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tandem Flight -->
+    <section data-show="24-25" class="show-section">
+        <h2 class="flex-box">Flight Day</h2>
+        <div>
+            <h3>Test Flight One</h3>
+            <p>After many delays to the project, I was very excited to finally fly the plane after over a year of working on it. Unfortunately, we ran into a few issues...</p>
+            <div>
+                <img width="400" src="../resources/solar-airplane/solar-wipe-off-solar-panels.JPG">
+                <img width="400" src="../resources/solar-airplane/solar-tandem-flight-1-team.JPG">
+            </div>
+            <video width="800" src="../resources/solar-airplane/solar-runway-crash-tracking.mp4" controls></video>
+
+            <img width="600" src="../resources/solar-airplane/solar-mission-failed.png">
+            <h3>It Broke.</h3>
+            <p>The first flight attempt didn't manage to get off the ground because, in short, the center of gravity (CG) was too far forward relative to the rear landing gear.</p>
+            <p>
+                To explain how we got to that point, it's important to take a look at the development leading up to the flight. The Fuselage and Aerodynamics subteams largely worked independently,
+                with general meetings each week to catch up. However, due to poor communication between the subteams, and a lack of sufficient aerodynamic analysis pre-fabrication, the fuselage ended up
+                being constructed with the rear landing gear in an arbitrary location.
+            </p>
+            <p>
+                In order for an aircraft to get off the runway, the lift force must exceed the weight of the aircraft. Because our vehicle does not have flaps, that means that the angle of attack (AOA) of the aircraft
+                must be somewhere around 5 degrees at our 20m/s top speed on the runway during that flight attempt. Typically, an aircraft is able to pitch up while still on the runway, easily achieving that
+                required AOA while on the runway. Because our landing gear was too far back relative to the CG, the pitching moment of the weight of the aircraft about the wheels was significantly greater than the max
+                pitching moment the elevators could induce. This meant that we were unable to pitch up on the runway, and therefore unable to take off.
+            </p>
+            <p>
+                But why not move the CG back? The neutral point (NP) is an imaginary point about which the pitching moment is constant with respect to angle of attack, and is used for static stability calcuations for aircraft.
+                If the NP is behind the CG, it has a positive static margin, and is statically stable - that is, with no control inputs, it will fly fairly straight, as opposed to going into death spirals. In order to have
+                sufficient static margin, the CG had to be moved a particular distance in front of the NP. And because this analysis was done after manufacturing, it was too late to modify the aerodynamics and NP position.
+                So, we were forced to move the CG to a particular spot, which happened to be far in front of the rear landing gear.
+            </p>
+            <h3>The Solution</h3>
+            <p>
+                After weighing multiple solutions, I determined that the best course of action to fly the plane was to extend the front landing gear such that the aircraft has the roughly 5 degree AOA while sitting on the runway,
+                without needing to pitch up. This was the simplest solution for us to implemenmt, as the nose gear was already in need of replacement after the crash.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tandem Flight 2 -->
+    <section data-show="24-25" class="show-section">
+        <div>
+            <h2 class="flex-box">Flight Day Two</h2>
+            <p>After fixing the front landing gear, and checking calculations over again, I was confident that the aircraft could take off the runway and be stable in flight.</p>
+            <video width="800" src="../resources/solar-airplane/solar-tandem-flight-2-stable.mp4" controls></video>
+            <div>
+                <img style="height:300px;" src="../resources/solar-airplane/solar-crash-wreckage.PNG">
+                <img style="height:300px;" src="../resources/solar-airplane/solar-crash-wreckage-2.jpg">
+            </div>
+            <h3>That Didn't Go So Well...</h3>
+            <p>
+                After about 30 seconds of flying very well, the aircraft took a sudden nose-dive into the ground. After analyzing onboard flight data and reviewing flight footage, we were unable to identify
+                the exact cause of the failure.
+            </p>
+            <h3>Post-Crash Investigation</h3>
+            <p>
+                I led the crash investigation, doing most of the analysis on my own. I was able to rule out electrical failure, as the battery voltage and current readings did not show significant changes during the anomaly.
+                Data indicates that the aircraft was in manual mode during the entire flight, meaning the pilot had direct control the entire time. The aircraft did recieve commands to pitch up, and executed them by moving the servos,
+                as can be confirmed by the footage. Two minor anomalies can be seen in the attitude data and flight footage, where it appears that the aircraft started stalling for a brief period of time, rapidly decreasing in pitch
+                for a moment. Despite this, the aircraft seemed to recover very quickly, and this behavior does explain the slow decrease in altitude preceding the nose dive.
+            </p>
+            <p>
+                We were unable to identify any significant changes in data immediately before the nose dive that could indicate a cause for such a sudden change in attitude. We also did not notice any mechanical failures in the flight footage,
+                and we examined the control surfaces and their control horns for damage. Despite the crash, all control surfaces were still attached to their control horns and their servos.
+            </p>
+            <h3>Possible Explainations</h3>
+            <p>
+                One possibility is that the tape used to attach the control surfaces to the wings had flexed significantly, causing the wing contour to significantly deform, and the control surface to change orientation. While we have
+                observed some small wiggle in the attachment point, we do not find this option very likely, as the tape is very sticky and unlikely to come undone enough to cause such a dramatic loss of control.
+            </p>
+            <p>
+                Another, more likely, possibility is that some internal components were not securely fixed in place, and had managed to shift during flight. If enough weight had moved, the plane could lose it's abiltiy
+                to maintain attitude as seen in the footage.
+            </p>
+            <p>Something else? We have yet to make a definitive conclusion about what caused the crash, so it's very possible that we are missing some other explaination.</p>
+        </div>
+    </section>
+
+    <!-- 2025-2026 -->
+    <section data-show="25-26" class="show-section">
+        <p>Coming Soon...</p>
+    </section>
+
+    <script>
+        const selectorButtons = document.querySelectorAll('.show-selector button');
+        const sections = document.querySelectorAll('.show-section');
+
+        // Set default show
+        const defaultYear = "24-25";
+
+        // Hide all sections
+        sections.forEach(section => section.style.display = 'none');
+
+        // Show all sections for the default show
+        document.querySelectorAll(`.show-section[data-show="${defaultYear}"]`)
+            .forEach(section => section.style.display = 'block');
+
+        // Highlight the default button
+        selectorButtons.forEach(btn => {
+            if (btn.dataset.show === defaultYear) {
+                btn.classList.add('selected');
+            }
+        });
+
+        // Click behavior
+        selectorButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const showId = btn.dataset.show;
+
+                // Hide all sections
+                sections.forEach(section => section.style.display = 'none');
+
+                // Show all sections for this show
+                document.querySelectorAll(`.show-section[data-show="${showId}"]`)
+                    .forEach(section => section.style.display = 'block');
+
+                // Update selected styling
+                selectorButtons.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+            });
+        });
+    </script>
 </body>
 </html>
