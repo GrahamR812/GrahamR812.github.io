@@ -3,10 +3,10 @@
 
 
 :root {
-    --base-color: #f5bf5b;
+    --base-color: #dbdfe6;
     --headings-color: #3498db;
-    --panel-color: #235697; /* 00386c uci, or 62a2e2 */
-    --panel-color-2: #f3f8ff;
+    --panel-color: #235697;
+    --panel-color-2: #fbfdff;
     --color-1: #313049;
     --color-2: #3a4461;
     --color-3: #ffd769; 
@@ -89,7 +89,8 @@ nav {
     left: 0;
     z-index:1000;
     box-shadow: 0 10px 10px -10px rgba(0,0,0,0.4);
-    border-top: 2px solid var(--text-color);
+    border-bottom: 6px solid var(--color-3);
+
 }
 
 nav ul {
