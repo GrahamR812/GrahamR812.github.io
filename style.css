@@ -76,6 +76,7 @@ nav {
     background-color: var(--panel-color);
     padding-top: 0px;
     padding-bottom: 0.5em;
+    /* padding-left: 0.5rem; */
     margin-top: 0px;
     margin-bottom: 0px;
     color: var(--text-color-3);
@@ -101,7 +102,8 @@ nav ul {
     gap: 2em;
     margin: 10px auto;
     flex-wrap: wrap;
-    padding: 0 min(2em, 8%);
+    padding: 0 min(2%, 2em);
+    width:100%;
 }
 
 nav > * {
@@ -150,7 +152,7 @@ section {
 }
 
 section:first-of-type {
-    padding-top: 40px;
+    padding-top: max(min(40px, 3vw), 10px);
 }
 
 img {
