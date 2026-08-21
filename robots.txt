@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grahamrichards.com/sitemap.xml

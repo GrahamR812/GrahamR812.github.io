@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wall-E</title>
+    <title>Mini WALL-E Robot Project | Graham Richards</title>
+    <meta name="description" content="Graham Richards' mini WALL-E robot project, exploring compact 3D-printed robotics, a sliding shoulder mechanism, bevel gears, and expressive motion.">
+    <link rel="canonical" href="https://grahamrichards.com/projects/wall-e.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mini WALL-E Robot Project | Graham Richards">
+    <meta property="og:description" content="Engineering a compact, expressive WALL-E-inspired robot with 3D-printed mechanisms and a sliding shoulder.">
+    <meta property="og:url" content="https://grahamrichards.com/projects/wall-e.html">
+    <meta property="og:image" content="https://grahamrichards.com/resources/walle/walle-cad-body.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mini WALL-E Robot Project | Graham Richards">
+    <meta name="twitter:description" content="Engineering a compact, expressive WALL-E-inspired robot with 3D-printed mechanisms and a sliding shoulder.">
+    <meta name="twitter:image" content="https://grahamrichards.com/resources/walle/walle-cad-body.jpg">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -43,8 +54,8 @@
         <div class="flex-container">
             <div>
                 <h2>A Sliding Shoulder</h2>
-                <img width="400px" src="../resources/walle/walle-arm-reference-back.jpg">
-                <img width="400px" src="../resources/walle/walle-arm-reference-down.jpg">
+                <img width="400px" src="../resources/walle/walle-arm-reference-back.jpg" alt="WALL-E shoulder reference from the back">
+                <img width="400px" src="../resources/walle/walle-arm-reference-down.jpg" alt="WALL-E shoulder reference from below">
 
                 <p>
                     In the movie, Wall-E's shoulder moves along an L-shaped path on his side, and I think adds a lot to his expressiveness. In the early stages of this project, I decided this was one of the
@@ -55,20 +66,20 @@
                 </p>
 
                 <h3>The Cart</h3>
-                <img width="500px" src="../resources/walle/walle-shoulder-track.jpg">
+                <img width="500px" src="../resources/walle/walle-shoulder-track.jpg" alt="3D-printed track for the WALL-E shoulder cart">
                 
                 <p>
                     My initial prototype utilized cheap v-bearings sitting with a track on either side, and the shoulder pivot going between the tracks, as pictured above. After printing out the components and doing preliminary testing,
                     I determined that the v-bearings I purchased had an unacceptable amount of wobble to them, which prevented the cart from moving rigidly as intended.
                 </p>
-                <img width="480px" src="../resources/walle/walle-ball-cart.jpg">
+                <img width="480px" src="../resources/walle/walle-ball-cart.jpg" alt="Compact WALL-E shoulder cart using POM balls">
                 <p>
                     To remedy this, I moved to a different design using
                     small POM balls wedged between the tracks, acting as a much more compact version of the v-bearings which I could preload with springs and, importantly, include on the top and bottom of the cart (2 on the top, 2 on bottom).
                     Results from this method still need testing.
                 </p>
                 <h3>The Shoulder</h3>
-                <img width="600px" src="../resources/walle/walle-shoulder-spring-cross-section.jpg">
+                <img width="600px" src="../resources/walle/walle-shoulder-spring-cross-section.jpg" alt="Cross-section of the WALL-E shoulder spring mechanism">
                 
                 <p>
                     In order to fit two rotational DOF into the small sholder joint (30mm diameter), and ensure the mechanism would fit between the narrow tracks, I originally went with a bowden cable and spring return mechanism.
@@ -77,8 +88,8 @@
                     and the spring gave far too much resistance than the cheap servo to handle.
                 </p>
 
-                <img width="600px" src="../resources/walle/walle-cad-shoulder-new.jpg">
-                <img width="410px" src="../resources/walle/walle-shoulder.jpg">
+                <img width="600px" src="../resources/walle/walle-cad-shoulder-new.jpg" alt="CAD model of the redesigned WALL-E bevel gear shoulder">
+                <img width="410px" src="../resources/walle/walle-shoulder.jpg" alt="3D-printed WALL-E shoulder prototype">
                 <p>
                     To get around these limitations, I redesigned the entire shoulder to utilize a bevel gear differential system. This combines the motion of two servos into the two motions the arm needs to conduct, which provides a few benefits.
                     First, the combined torque of two servos is used to lift the arm up and down, which should theoretically improve the max weight capacity of the arm. Second, it means that there are zero parasitic forces (like a spring) requiring
@@ -96,11 +107,11 @@
         <div>
             <h2>Wall-E Photo Gallery</h2>
             <div class="grid-container" style="--col-width: 350px;">
-                <img src="../resources/walle/walle-cad-body.jpg">
-                <img src="../resources/walle/walle-cad-body-interior.jpg">
-                <img src="../resources/walle/walle-arm-new.jpg">
-                <img src="../resources/walle/walle-cad-shoulder-new.jpg">
-                <img src="../resources/walle/walle-shoulder.jpg">
+                <img src="../resources/walle/walle-cad-body.jpg" alt="CAD model of the WALL-E robot body">
+                <img src="../resources/walle/walle-cad-body-interior.jpg" alt="Interior CAD view of the WALL-E robot body">
+                <img src="../resources/walle/walle-arm-new.jpg" alt="New WALL-E robot arm design">
+                <img src="../resources/walle/walle-cad-shoulder-new.jpg" alt="CAD model of the WALL-E shoulder mechanism">
+                <img src="../resources/walle/walle-shoulder.jpg" alt="WALL-E shoulder prototype">
             </div>
         </div>
     </section>
