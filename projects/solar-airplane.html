@@ -151,6 +151,7 @@
                 </video>
             </div>
             <h3>Glue Up</h3>
+            <h4>Adhesive Choice</h4>
             <p>
                 As a new member, I was introduced to the previously used methods of adhering the ribs to the spars: 5 minute epoxy resin. I was absolutely horified by the prospect of working a few ribs at a time,
                 constantly pouring new batches of carcinogenic fumes and safety hazards, and taking a long time with each rib. So, I proposed using the super glue we had on hand. I wasn't sure if the super glue would
@@ -158,7 +159,15 @@
                 the super glue bond was stronger than the wood. This meant that we could proceed with super gluing the ribs on, which significantly reduces the hazard we are being exposed to (and ppe required), and speeds
                 up the process of attaching ribs to the spars manually.
             </p>
+            <h4>Isn't Super Glue Brittle?</h4>
+            <p>
+                I also weighed other factors, such as the ductility of the bond and the long-term expected performance of the adheasive. The wing ribs are connected at four main surfaces: The two spars via an adheasive,
+                and the top and bottom surfaces of the wing via wood stringers and heat-shrunk plastic. Considering that the majority of the loading on the wing is radial from the axis of the spars, I determined that the ribs
+                would be unlikely to experience significant axial loads (along the spar) or twisting moments (perpendicular to the spar) that would cause slight deformation at the spar glue joint. Because the joint isn't expected
+                to experience loads along to the glue surface, a failure of this joint would probably not lead to significant consequencs for the aircraft, so I was comfortable using a more brittle super glue instead of epoxy resin.
+            </p>
             <img style="height:300px;" src="../resources/solar-airplane/solar-wing-bare-wip.jpg" alt="Solar airplane wing during rib assembly">
+            <h4>Gluing on the Ribs</h4>
             <p>
                 Using 3d printed jigs to ensure the spars were parallel and the ribs were perpendicular to both spars while gluing, I meticulously followed my prepared solidworks assembly drawings with measurements for the placement
                 of each rib. Because the wings had to be divided into 3 sections - the two sides removable for easy transport - I used internal ferrules epoxied within the outer spars that nest within the inner with a friction fit.
@@ -201,16 +210,18 @@
                 with general meetings each week to catch up. However, due to poor communication between the subteams, and a lack of sufficient aerodynamic analysis pre-fabrication, the fuselage ended up
                 being constructed with the rear landing gear in an arbitrary location.
             </p>
+            <h4>How to get off the Ground</h4>
             <p>
                 In order for an aircraft to get off the runway, the lift force must exceed the weight of the aircraft. Because our vehicle does not have flaps, that means that the angle of attack (AOA) of the aircraft
                 must be somewhere around 5 degrees at our 20m/s top speed on the runway during that flight attempt. Typically, an aircraft is able to pitch up while still on the runway, easily achieving that
                 required AOA while on the runway. Because our landing gear was too far back relative to the CG, the pitching moment of the weight of the aircraft about the wheels was significantly greater than the max
                 pitching moment the elevators could induce. This meant that we were unable to pitch up on the runway, and therefore unable to take off.
             </p>
+            <h4>Design Conflicts</h4>
             <p>
                 But why not move the CG back? The neutral point (NP) is an imaginary point about which the pitching moment is constant with respect to angle of attack, and is used for static stability calcuations for aircraft.
                 If the NP is behind the CG, the aircraft has a positive static margin, and is statically stable - that is, with no control inputs, it will fly fairly straight, as opposed to going into death spirals. In order to have
-                sufficient static margin, the CG had to be moved a particular distance in front of the NP. And because this analysis was done after manufacturing, it was too late to modify the aerodynamics and NP position.
+                sufficient static margin, the CG had to be moved a particular distance in front of the NP. And because the analysis to determine the NP location was done after manufacturing, it was too late to modify the aerodynamics and NP position.
                 So, we were forced to move the CG to a specific spot along the aircraft, which happened to be far in front of the rear landing gear.
             </p>
             <h3>The Solution</h3>
@@ -218,6 +229,46 @@
                 After weighing multiple solutions, I determined that the best course of action to fly the plane was to extend the front landing gear such that the aircraft has the roughly 5 degree AOA while sitting on the runway,
                 without needing to pitch up. This was the simplest solution for us to implemenmt, as the nose gear was already in need of replacement after the crash.
             </p>
+        </div>
+    </section>
+
+    <!-- Fluid Simulations -->
+    <section data-show="24-25" class="show-section">
+        <h2 class="flex-box">Fluid Simulations</h2>
+        <div>
+            <h3>Software Selection</h3>
+            <p>
+                In order to expand my skillset and develop a thorough understanding of what went wrong with the previous flight, I wanted to use computational fluid dynamics (CFD) to evaluate the aerodynamic characteristics of the aircraft.
+            </p>
+            <p>
+                I researched some CFD tools, and found that Solidworks has a flow simulation add-in included in my license (although the industry doesn't seem to favor it), and Ansys has a tool called Fluent which is much more utilzied in the industry,
+                and is expected to give better results. Because Solidworks Flow Simulation would be easiest to integrate with our workflow, and is more user-friendly, I decided to start my simulations there.
+            </p>
+            <h4>Solidworks Flow Simulation</h4>
+            <p>
+                I ran a handful of simulations using Solidworks and a basic setup, recording lift and drag as a function of angle of attack, as well as the pitching moment. I analyzed the results and found the neutral point of the aircraft by calculating the slope
+                of the pitching moment vs lift force near 0 degrees AOA. Because this was my first time using CFD, the results were likely not very accurate (due to user error), but I still wanted to give Fluent a try, and see how they compare.
+            </p>
+            <h4>Ansys Fluent</h4>
+            <p>
+                Right off the bat, I discovered that Ansys Fluent was going to be a lot more difficult to use than Solidworks. I found that finding the right tool to use was very difficult at times, and setting up anything was difficult. Importing the geometry and configuring
+                motion of the control surfaces and the aircraft as a whole was very challenging. When I got to the meshing stage, I discovered after hours of failed attempts that Ansys offers two meshing tools. The default one in the workflow is not intended for fluid simulations,
+                and caused a lot of problems. The other one, Fluent Meshing, worked much better. Despite this, it still took countless hours of failed meshing and random failures and software crashes to even get that completed. Once I figured out the meshing, it was fairly
+                straightforward to set up and run the fluid simulation with design parameters for all of my desired variables (speed, AOA, etc).
+            </p>
+            <p>
+                In total, I ran over 20+ design point simulations to create a thorough picture of the aircraft's performance. Doing the same NP calculation as before, I found that the two softwares matched within about 10% of the mean-aerodynamic-chord (an important reference for static margin calculations).
+                Although this isn't particularly promising, I will note that the solidworks simulations were not done particularly well, including a very small fluid domain and poor meshing. Because I ran multiple ansys simulations, some with different domains and meshing parameters, and found
+                very similar results each time, I trust the ansys simulations to be more accurate.
+            </p>
+            <h3>CFD Video Tutorials</h3>
+            <p>
+                Because of the difficulty I faced while learning Fluent, I decided to help my teammates out by recording video tutorials for the whole Fluent process. This allowed them to run some basic simulations without having to spend the countless hours
+                I did facing various errors, failures, and crashes.
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/IaF615-qi94?si=y1sCp8JKG2L0zZ-J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/5ukanis8z7s?si=WckrIel9leauJ5vi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7dIdMvTRwcY?si=u5ix7ZD_dSMIYsNN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -267,6 +318,7 @@
         <p>Coming Soon...</p>
     </section>
 
+    <!-- Script to show/hide content based on selection at the top of the page -->
     <script>
         const selectorButtons = document.querySelectorAll('.show-selector button');
         const sections = document.querySelectorAll('.show-section');
