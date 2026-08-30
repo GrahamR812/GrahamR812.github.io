@@ -42,7 +42,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, summary {
     color: var(--headings-color);
     margin-bottom: 10px;
     margin-top: 10px;
@@ -213,7 +213,7 @@ section#projects img {
 
 hr {
     border: none;
-    border-top: 3px solid var(--text-color);
+    border-top: 5px solid var(--color-4);
     margin: 20px 0;
 }
 
@@ -345,4 +345,14 @@ button:active {
     padding: 5px;
     overflow: hidden;
     border-radius: 5px;
+}
+
+details {
+    margin-bottom: 20px;
+}
+
+summary {
+    font-size: 1.5em;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }

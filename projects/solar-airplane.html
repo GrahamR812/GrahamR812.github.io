@@ -26,31 +26,39 @@
         </ul>
     </nav>
 
-    <!-- Year/Project Selection Grid -->
+    <!-- Title / Description -->
     <section class = "flex-box">
         <h1>Solar Airplane</h1>
         <!-- Overview -->
-        <div class = "flex-container">
-            <div class = "text-container">
-                <h2>Project Overview</h2>
-                <p>
-                    The UCI Solar Airplane project aims to demonstrate the viability of solar panels for increasing the flight duration of unmanned aerial vehicles (UAV) and to create a vehicle
-                    capable of assisting in search and rescue missions for natural disasters.
-                </p>
-                <h2>Design Requirements</h2>
-                <ul>
-                    <li>Must be functional</li>
-                    <li>Must be powered by solar panels and batteries</li>
-                    <li>Must have a flight duration extended by 30 minutes beyond the battery life in sunny weather conditions</li>
-                    <li>Electronics and Propulsion equipment must be integrated and easily accessible throughout the aircraft</li>
-                    <li>Must fit in a standard truck bed (6.5ft x 4.2ft)</li>
-                    <li>GPS and camera must be integrated with acceptable video quality</li>
-                    <li>In-flight data must be given via remote terminal</li>
-                </ul>
-                <p>Visit the <a href="https://sites.google.com/uci.edu/solarairplane/home" target="_blank">project website</a>!</p>
-            </div>
+         <div style="width: 100%;">
+            <details>
+                <summary>Project Overview</summary>
+                <div class = "text-container">
+                    <!-- <h2>Project Overview</h2> -->
+                    <p>
+                        The UCI Solar Airplane project aims to demonstrate the viability of solar panels for increasing the flight duration of unmanned aerial vehicles (UAV) and to create a vehicle
+                        capable of assisting in search and rescue missions for natural disasters.
+                    </p>
+                    <h2>Design Requirements</h2>
+                    <ul>
+                        <li>Must be functional</li>
+                        <li>Must be powered by solar panels and batteries</li>
+                        <li>Must have a flight duration extended by 30 minutes beyond the battery life in sunny weather conditions</li>
+                        <li>Electronics and Propulsion equipment must be integrated and easily accessible throughout the aircraft</li>
+                        <li>Must fit in a standard truck bed (6.5ft x 4.2ft)</li>
+                        <li>GPS and camera must be integrated with acceptable video quality</li>
+                        <li>In-flight data must be given via remote terminal</li>
+                    </ul>
+                </div>
+            </details>
+            <p>Visit the <a href="https://sites.google.com/uci.edu/solarairplane/home" target="_blank">project website</a>!</p>
         </div>
+    </section>
 
+    <!-- Year/Project Selection Grid -->
+    <section class = "flex-box" >
+        <h1>Year Selection</h1>
+        <br>
         <div class="show-selector" style="grid-template-columns: repeat(auto-fit, min(400px, 100%));">
             <button data-show="24-25">
                 <img src="../resources/solar-airplane/solar-front-runway-pose.jpg" alt="Solar airplane on the runway">
