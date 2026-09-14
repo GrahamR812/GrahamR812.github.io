@@ -158,8 +158,8 @@ section:first-of-type {
 img {
     max-width: 100%;
     height: auto;
-    border-radius: 1em;
-    object-fit: contain;
+    border-radius: 30px;
+    object-fit: cover;
     margin: 8px;
 }
 
@@ -238,12 +238,16 @@ button {
     background-color: var(--color-1);
     border: none;
     padding: 10px 2rem 20px;
-    border-radius: 0.5em;
+    border-radius: 25px;
     cursor: pointer;
     color: var(--text-color-2);
     min-width: 0;
 
     height: 100%;
+}
+
+.justified-text {
+    text-align: justify;
 }
 
 .project-grid h1 {
@@ -288,12 +292,14 @@ button:active {
     width: 100;
 }
 
-.skill-grid p, .skill {
+.skill-grid li, .skill {
     background-color:var(--color-3);
     border-radius: 5px;
     color: var(--text-color);
     padding: 5px;
-    margin-top: 0px;
+    margin: 2px;
+
+    list-style-type:none;
 }
 
 .skill-grid {

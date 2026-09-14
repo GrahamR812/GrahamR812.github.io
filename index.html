@@ -31,24 +31,13 @@
         </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- <header>
-        <div class="flex-container">
-            <h1 id="title">Graham Richards</h1>
-        </div>
-    </header> -->
 
-    <nav class = "navbar">
-        <ul>
-            <li>Graham Richards</li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-        </ul>
-    </nav>
+<body>
+    <div id="navbar-container"></div>
 
     <section>
         <div class="flex-container" style="justify-content: center;">
-            <img width="300" height="auto" src="./resources/headshot.jpg" alt="Graham Richards">
+            <img width="300" height="auto" style="border-radius: 25px" src="./resources/headshot.jpg" alt="Graham Richards">
             <div class="text-container">
                 <h1>Hi, I'm Graham!</h1>
                 <p>Aerospace Engineering Senior</p>
@@ -59,8 +48,9 @@
                 <p>Visit my <a href="https://www.linkedin.com/in/grahamf-richards/" target="_blank">LinkedIn</a> @grahamf-richards</p>
                 <p>Download my <a href="./resources/Richards - Resume.pdf" target="_blank">resume</a>!</p>
             </div>
-            <div class="text-container">
-                <p style="text-indent: 2em;">I am a dedicated aerospace engineering student with an interest in robotics and multidiciplinary applications of engineering.</p>
+            <div class="text-container" style="width: min(100%, 800px);">
+                <hr>
+                <p>I'm an aerospace engineering student at UC Irvine with interests in aircraft design, autonomous systems, theatrical design, and robotics. Through hands-on engineering projects, I combine analytical tools such as CAD, FEA, CFD, and programming with manufacturing and testing to turn concepts into functional hardware.</p>
             </div>
         </div>
     </section>
@@ -77,96 +67,98 @@
         <div class="grid-container project-grid">
             <button type="button" class="button" onclick="window.location.href='projects/solar-airplane.html'">
                 <img src="./resources/solar-airplane/solar-front-runway-pose.jpg" alt="The front of the solar airplane, sitting on the runway">
-                <div class="skill-grid">
-                    <p>Solidworks CAD</p>
-                    <p>Solidworks FEA</p>
-                    <p>Ansys Fluent</p>
-                    <p>3D Printing</p>
-                    <p>Wood Working</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Solidworks CAD</li>
+                    <li>Vibration Analysis</li>
+                    <li>External Flow Analysis</li>
+                    <li>3D Printing</li>
+                    <li>Wood Working</li>
+                </ul>
                 <h1>UCI Solar Airplane</h1>
                 <h2>Fall 2024-Present</h2>
-                <p>Solidworks CAD design, manufacturing, video tutorials for CAD, CFD, FEA.</p>
+                <p class="justified-text">Designing and manufacturing a solar-powered aircraft for the UCI Solar Airplane Team. My work focuses on structural design, aerodynamic analysis, vibration modeling, manufacturing processes, and CAD development to create a lightweight, flight-ready airframe capable of efficient solar-powered operation.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
 
             <button type="button" class="button" onclick="window.location.href='projects/mae106.html'">
                 <img src="./resources/mae106/mae106 portrait.jpg" alt="Rover portrait">
-                <div class="skill-grid">
-                    <p>Solidworks CAD</p>
-                    <p>C++</p>
-                    <p>3D Printing</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Solidworks CAD</li>
+                    <li>C++</li>
+                    <li>3D Printing</li>
+                </ul>
                 <h1>Pneumatic-Drive Rover</h1>
                 <h2>Spring 2026</h2>
-                <p>C++ programming for autonomous closed-loop navigation.</p>
+                <p class="justified-text">Autonomous rover platform powered by an onboard pneumatic propulsion system. I developed the closed-loop navigation software, parts of the vehicle structure, and mechanical and sensor systems. Earned first place in a competition with over 80 teams.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
 
             <button type="button" class="button" onclick="window.location.href='projects/engr7b.html'">
                 <img src="./resources/engr7b/engr7b-front-smile.jpg" alt="The front of the rover, grabbing a red can with its claw.">
-                <div class="skill-grid">
-                    <p>Solidworks CAD</p>
-                    <p>C++</p>
-                    <p>3D Printing</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Solidworks CAD</li>
+                    <li>C++</li>
+                    <li>3D Printing</li>
+                </ul>
                 <h1>Autonomous Rover</h1>
                 <h2>Winter 2025</h2>
-                <p>C++ programming for autonomous line following and visual object detection.</p>
+                <p class="justified-text">Designed and programmed an autonomous rover capable of line following, visual object detection, and lifting objects. My contributions spanned mechanical design, embedded programming, sensor integration, and real-time decision making to create a fully self-operating robotic platform.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
 
             <button type="button" class="button" onclick="window.location.href='projects/wall-e.html'">
                 <img src="./resources/walle/walle-cad-body.jpg" alt="Rocket Image">
-                <div class="skill-grid">
-                    <p>Solidworks CAD</p>
-                    <p>C++</p>
-                    <p>3D Printing</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Solidworks CAD</li>
+                    <li>C++</li>
+                    <li>3D Printing</li>
+                </ul>
                 <h1>Mini WALL-E Robot</h1>
                 <h2>2025-Present</h2>
-                <p> Design and construction of a miniature WALL-E inspired robot.</p>
+                <p class="justified-text">A miniature robotic recreation of Pixar's WALL-E built from the ground up using custom-designed and 3D-printed components. This ongoing project explores compact mechanical design, manufacturability, and the challenges of recreating expressive robot motion at a small scale.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
 
             <button type="button" class="button" onclick="window.location.href='projects/engr7a.html'">
                 <img src="./resources/engr7a/engr7a-rover-front.png" alt="Front image of the rover">
-                <div class="skill-grid">
-                    <p>Solidworks CAD</p>
-                    <p>3D Printing</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Solidworks CAD</li>
+                    <li>3D Printing</li>
+                </ul>
                 <h1>RC Rover</h1>
                 <h2>Fall 2024</h2>
-                <p>CAD Design and manufacturing of a manually driven RC car.</p>
+                <p class="justified-text">Designed and manufactured a remote-controlled rover as an introduction to vehicle design, fabrication, and mechanical integration. The project provided hands-on experience turning a complete CAD design into a functional physical prototype through iterative manufacturing and testing.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
 
             <button type="button" class="button" onclick="window.location.href='projects/theatre.html'">
                 <img src="./resources/mermaid/mermaid-cast-photo.jpg" alt="The Little Mermaid cast posing on set.">
-                <div class="skill-grid">
-                    <p>Carpentry</p>
-                    <p>Scenic Design</p>
-                    <p>3ds Max Animation</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Carpentry</li>
+                    <li>Scenic Design</li>
+                    <li>3ds Max Animation</li>
+                </ul>
                 <h1>Technical Theater</h1>
                 <h2>Fall 2021 - Spring 2024</h2>
-                <p>Design and construction of sets and 3d virtual backgrounds for live theater.</p>
+                <p class="justified-text">Designed and constructed theater sets, scenery, and virtual backgrounds for live productions. This work developed practical experience in structural construction, fabrication, project coordination, and transforming concepts into large-scale physical environments under tight production deadlines.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
 
             <button type="button" class="button" onclick="window.location.href='projects/tiny-house.html'">
                 <img src="./resources/tiny-house/tiny-house-front-complete.jpg" alt="Front image of the rover">
-                <div class="skill-grid">
-                    <p>Rough Framing</p>
-                    <p>Finish/Trim Installation</p>
-                    <p>Residential Wiring + Plumbing</p>
-                </div>
+                <ul class="skill-grid">
+                    <li>Rough Framing</li>
+                    <li>Finish/Trim Installation</li>
+                    <li>Residential Wiring + Plumbing</li>
+                </ul>
                 <h1>Tiny House Construction</h1>
                 <h2>Winter 2022 - Summer 2023</h2>
-                <p>Experience in residential construction, working on framing, plumbing, electrical, insulation, flooring, and interior trim.</p>
+                <p class="justified-text">Participated in the construction of a residential tiny house, gaining hands-on experience with framing, electrical systems, plumbing, insulation, flooring, and finish work. The project provided practical insight into how mechanical, structural, and electrical systems are integrated into real-world engineered structures.</p>
                 <p><strong>See more &rarr;</strong></p>
             </button>
         </div>
     </section>
+
+    <script src="/components/navbar.js"></script>
 </body>
 </html>
