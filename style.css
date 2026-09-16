@@ -42,6 +42,12 @@ h1 {
     margin-bottom: 1rem;
 }
 
+
+
+h3 {
+    font-size: 1.3rem;
+}
+
 h1, h2, h3, h4, h5, h6, summary {
     color: var(--headings-color);
     margin-bottom: 10px;
@@ -63,14 +69,6 @@ li {
     margin-bottom: 1em;
     font-size: 1rem;
 }
-
-/* header {
-    background-color: var(--panel-color);
-    padding:0;
-    overflow:hidden;
-    margin:0;
-    top:0;
-} */
 
 nav {
     background-color: var(--panel-color);
@@ -159,7 +157,7 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 30px;
-    object-fit: cover;
+    object-fit: scale-down;
     margin: 8px;
 }
 
@@ -215,6 +213,14 @@ hr {
     border: none;
     border-top: 5px solid var(--color-4);
     margin: 20px 0;
+}
+
+hr.thin {
+    border-top-width: 2px;
+}
+
+hr.dark {
+    border-color: var(--text-color);
 }
 
 section#projects {
@@ -330,6 +336,15 @@ button:active {
         flex: 1;
         min-width: min(300px, 100%);
     }
+
+    & h1, h2, h3, h4, h5, h6 {
+        text-align: left;
+        flex-basis: 100%;
+    }
+
+    & p {
+        text-align: left;
+    }
 }
 
 
@@ -362,3 +377,21 @@ summary {
     font-weight: bold;
     unicode-bidi: isolate;
 }
+
+.full-width {
+    width: 100%;
+}
+
+.break {
+    flex-basis: 100%;
+}
+
+.flex-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-v-center {
+    align-items: center;
+}
+
+
