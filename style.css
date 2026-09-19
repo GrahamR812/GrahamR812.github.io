@@ -164,7 +164,7 @@ img {
 }
 
 figure {
-    display: block;
+    display: table;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
@@ -178,6 +178,8 @@ figure {
 }
 
 figcaption {
+    display: table-caption;
+    caption-side: bottom;
     text-align: center;
     color: var(--text-color);
     font-size: 0.9rem;
@@ -299,11 +301,14 @@ button:active {
     transform: scale(0.90);
 }
 
+
 .inline-image {
     float: left;
     margin-right: 20px;
     margin-bottom: 15px;
     object-fit: contain;
+    display: flex;
+    place-items: center;
 
     max-width: calc(100% - 20rem);
     min-width: min(50%, 200px);
