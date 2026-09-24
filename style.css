@@ -156,25 +156,32 @@ section:first-of-type {
 
 img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: fit-content;
     height: auto;
     border-radius: 30px;
     object-fit: scale-down;
     margin: 8px;
 }
 
+.inline-container {
+    display: inline-flex;
+    float: left;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    max-width: calc(100% - 20rem);
+    min-width: min(50%, 200px);
+}
+
 figure {
     display: table;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
 
-    max-height: 100%;
-
-    & img {
-        margin-left: auto;
-        margin-right: auto;
-    }
+    /* max-height: 100%; */
+    width: fit-content;
+    /* max-width: 100%; */
+    /* margin-right:auto;
+    margin-left:auto; */
 }
 
 figcaption {
@@ -183,6 +190,7 @@ figcaption {
     text-align: center;
     color: var(--text-color);
     font-size: 0.9rem;
+    max-width: 100%;
 }
 
 video {
@@ -304,12 +312,16 @@ button:active {
 
 .inline-image {
     float: left;
+    clear: both;
     margin-right: 20px;
+    margin-left: 20px;
     margin-bottom: 15px;
     object-fit: contain;
-    display: flex;
-    place-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
+    /* width: fit-content; */
     max-width: calc(100% - 20rem);
     min-width: min(50%, 200px);
 }
