@@ -81,15 +81,30 @@ nav {
     font-weight: bold;
 }
 
+#navbar-container {
+    height: 0;
+}
+
 .navbar {
     padding-top: 0px;
-    position: sticky;
+    position: static;
     overflow: hidden;
     top: 0;
     left: 0;
+    width: 100%;
     z-index:1000;
     box-shadow: 0 10px 10px -10px rgba(0,0,0,0.4);
     border-bottom: 7px solid var(--color-3);
+    transform: translateY(0);
+    transition: transform 0.25s ease;
+}
+
+.navbar.navbar-floating {
+    position: fixed;
+}
+
+.navbar.navbar-hidden {
+    transform: translateY(calc(-100% - 7px));
 
 }
 
@@ -126,6 +141,19 @@ nav ul a {
 
 nav ul a:hover {
     text-decoration: underline;
+}
+
+/* Wrap the navbar in columns if the screen is really narrow */
+@media (max-width: 25rem) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    /* Center the first element, instead of the default left-align */
+    nav li:first-child {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 section {
