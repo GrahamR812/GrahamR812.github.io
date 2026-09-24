@@ -49,8 +49,11 @@
                 This design allows for turning in place, which is important for the line-detection and following capabilites. Importantly, the infrared line-detection sensors are located near the front of the rover, such that they are far in front of the
                 turning center, allowing for a sweeping motion to find the line.
             </p>
-            
-            <h3>The Claw</h3>
+        </div>
+    </section>
+    <section class="block-box">
+        <div>
+            <h2>The Claw</h2>
 
             <div class="inline-container float-right">
                 <figure>
@@ -95,7 +98,7 @@
                 the claw can close freely under the tension of the rubber band. This force comes from a trigger string specifically placed to activate when the target can is rammed into.
             </p>
 
-            <h4>Design Outcome</h4>
+            <h3>Design Outcome</h3>
             <p>
                 This design overcomes one of the greatest challenges of foregoing electronic sensing and actuation. Because the aluminum can does not have a lot of friction with the ground, and is very light weight, it was actually very difficult to make a mechanism that was
                 sensitive enough to be triggered by the can, but not too sensitive that it trigger prematurely while navigating the course. The many adjustable dimensions of the design allowed for a lot of experimentation to find the perfect set of geometries that allowed for this
@@ -105,14 +108,17 @@
                 The claw worked very well for the needs of the competition, and actually worked more reliably than some claws using servos. Many teams discovered that the provided servos lacked sufficient torque to effectively lift the can, a problem which I did not have to deal with.
                 It is worth noting that while my claw mechanism could technically lift the can off the ground, limitations in the overall design and rapid closing of the claw when triggered meant that the can was usually only lifted a few millimeters off the ground (which does still qualify for the competition!).
             </p>
-
-            <h3>Line-Following Capabilities</h3>
+        </div>
+    </section>
+    <section class="block-box">
+        <div>
+            <h2>Line-Following Capabilities</h2>
             <p>
                 I opted to use a 3-sensor line following system, where one sensor is placed in the middle of the width of the chassis, and two more sit to its sides. The programming is very simple for this design, as there are relatively few states the system can be in.
                 If the middle sensor is over the line (but not the other two), then the rover can move straight. If one of the side sensors goes over the line, turn in that direction. Although this is very
                 simple in theory, I discovered that it was very sensitive to vehicle speed, line thickness and contrast (in the infrared spectrum), and sensor update frequency.
             </p>
-            <h4>Update Frequency Issues</h4>
+            <h3>Update Frequency Issues</h3>
             <p>
                 When I tested the rover before the final competition, it did very well, even on the final track. It successfully navigated the course multiple times, with very few failures.
                 In a rather stupid and unjustified move, I determined that I could improve the vehicle's performance by increasing the program's update frequency - a move that would prevent
@@ -133,6 +139,41 @@
                 major parts of a program, but with git reverting the change is very simple.
             </p>
         </div>
+    </section>
+
+    <section class="block-box">
+        <div>
+            <h1>Final Competition</h1>
+            <p>
+                For the final competition, a new track was set up which had never been tested on previously, in a new room. This posed a few challenges to work out in the limited
+                testing time immediately before the competition. Because of differences in lighting and track material, the infrared sensors for line-following needed to be re-calibrated.
+                Although they behaved similarly, I found that they were less reliable in the new environment. This meant that the minimum distance between the sensor and the line was not
+                the same as during previous testing. This negatively impacted the line-following consistancy and led to occasionally not seeing a line and overshooting a turn.
+            </p>
+            <p>
+                Although I was able to get the robot to complete the course reliably before the competition, I was still tweaking code parameters with the hope of improving the time to
+                complete the course. As discussed in more detail in the line following section, this last-minute tweaking of the code ultimately prevented the robot from earning even a single
+                score on the official leaderboard. This experience was very frustrating at the time, but it is worth noting that of the 10 teams that made it to the final competition, only about
+                half of them managed to get an official time over multiple attempts.
+            </p>
+            <p>
+                Despite its failures during the competition, I am very proud of the end result - a culmination of months of my own effort to design, prototype, manufacture, and program a unique
+                system that managed to perform better than many other teams.
+            </p>
+        </div>
+        
+        <iframe
+            class="centered"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/NZ-iZVQ6bXE?si=B3_xe6XpaT_2uM4t"
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
+        
     </section>
 
     <script src="/components/navbar.js"></script>

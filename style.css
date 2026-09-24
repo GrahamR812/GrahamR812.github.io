@@ -46,6 +46,8 @@ h1, h2, h3, h4, h5, h6, summary {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
 }
 
 
@@ -210,6 +212,11 @@ figure {
     /* max-width: 100%; */
     /* margin-right:auto;
     margin-left:auto; */
+}
+
+iframe.centered {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 figcaption {
